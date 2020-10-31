@@ -67,7 +67,7 @@ container.append(rowEl);
 }
 
 
-var dayArray = new Array;
+
 
 //This section here scrolls the user to the hour before the current one..
 var idString = "#row-"+ (currentHour-2);
@@ -83,6 +83,7 @@ $('html, body').animate({
 //The array should contain 24 strings, one comment for each day.
 //If we want to add an even cooler feature, we could do an array of arrays, which involves the week.
 //So 
+var dayArray = new Array;
 function createDefaultDayRecords(){
     //If there are no records, we create default
 
