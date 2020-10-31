@@ -9,7 +9,7 @@
 //Straight from W3 Shool
 //var d = new Date();
 var d = moment().format("MMM Do YYYY");  ;
-console.log(d);
+//console.log(d);
 // var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 // var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
@@ -17,11 +17,11 @@ console.log(d);
 //var currentHour = d.getHours(); //Used to track which of the days we'll color gray, blue or green.
 var currentHour = moment().format('h');
 var dateString = d;
-console.log(currentHour);
+//console.log(currentHour);
 $("#currentDay").text(dateString);
 
-console.log(dateString);
-console.log(currentHour);
+//console.log(dateString);
+//console.log(currentHour);
 
 
 
@@ -71,7 +71,7 @@ container.append(rowEl);
 
 //This section here scrolls the user to the hour before the current one..
 var idString = "#row-"+ (currentHour-2);
-console.log(idString);
+//console.log(idString);
 $('html, body').animate({
     
     scrollTop: $(idString).offset().top
@@ -93,7 +93,7 @@ function createDefaultDayRecords(){
     //console.log("FORING");
     for(var counterHour= 0; counterHour <= divisionOfDay; counterHour++){
         dayArray[counterHour] ="This is the "+(counterHour+1)+ ":00 comment"; 
-        console.log(dayArray);
+        //console.log(dayArray);
         $("#row-"+counterHour).find('textarea').eq(0).text(dayArray[counterHour]);
     }
 
@@ -113,10 +113,10 @@ function createDefaultDayRecords(){
     var dateinFormat = moment().format('l');
     console.log(dateinFormat);
     hourlyRecords = JSON.parse(localStorage.getItem("hourlyRecords-"+dateinFormat));
-    console.log(hourlyRecords);
+  //  console.log(hourlyRecords);
     if(hourlyRecords != null){
         //Populate with Hourly records.
-        console.log("Array is not empty");
+     //   console.log("Array is not empty");
 
         for(var x = 0; x<= hourlyRecords.length; x++){
             if(hourlyRecords[x] !=null){
