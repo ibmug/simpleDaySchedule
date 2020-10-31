@@ -93,7 +93,7 @@ function createDefaultDayRecords(){
     //console.log("FORING");
     for(var counterHour= 0; counterHour <= divisionOfDay; counterHour++){
         dayArray[counterHour] ="This is the "+(counterHour+1)+ ":00 comment"; 
-        //console.log(dayArray);
+        console.log(dayArray);
         $("#row-"+counterHour).find('textarea').eq(0).text(dayArray[counterHour]);
     }
     //Lets assign an item for each day?
