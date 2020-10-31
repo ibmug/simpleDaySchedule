@@ -83,19 +83,21 @@ $('html, body').animate({
 //The array should contain 24 strings, one comment for each day.
 //If we want to add an even cooler feature, we could do an array of arrays, which involves the week.
 //So 
-var dayArray = new Array;
+var hourlyRecords = new Array;
 function createDefaultDayRecords(){
     //If there are no records, we create default
 
     var divisionOfDay = 23 //24 hours a day. This should be hardcoded or default 
     //maybe a future version can consider dividing into 30 minute blocks?
-    
+    var dayArray= new Array;
     //console.log("FORING");
     for(var counterHour= 0; counterHour <= divisionOfDay; counterHour++){
         dayArray[counterHour] ="This is the "+(counterHour+1)+ ":00 comment"; 
         console.log(dayArray);
         $("#row-"+counterHour).find('textarea').eq(0).text(dayArray[counterHour]);
     }
+
+    hourlyRecords = dayArray;
     //Lets assign an item for each day?
     //I guess a question would be what would be best, an item for each
     //or an array for each record....
@@ -110,15 +112,15 @@ function createDefaultDayRecords(){
     // get submission for today
     var dateinFormat = moment().format('l');
     console.log(dateinFormat);
-    dayArray = JSON.parse(localStorage.getItem("hourlyRecords-"+dateinFormat));
-    console.log(dayArray);
-    if(dayArray != null){
+    hourlyRecords = JSON.parse(localStorage.getItem("hourlyRecords-"+dateinFormat));
+    console.log(hourlyRecords);
+    if(hourlyRecords != null){
         //Populate with Hourly records.
         console.log("Array is not empty");
 
-        for(var x = 0; x<= dayArray.length; x++){
-            if(dayArray[x] !=null){
-                $("#row-"+x).find('textarea').eq(0).text(dayArray[x]);
+        for(var x = 0; x<= hourlyRecords.length; x++){
+            if(hourlyRecords[x] !=null){
+                $("#row-"+x).find('textarea').eq(0).text(hourlyRecords[x]);
             }else{
                 $("#row-"+x).find('textarea').eq(0).text("Add something to do..");
             }
@@ -135,8 +137,8 @@ $(".saveBtn").on('click',function(event){
     var buttonId = $(this).attr("id");
    var commentOfButton  = $("#row-"+buttonId).find('textarea').eq(0).val();
    var dateFormat = moment().format('l');
-    dayArray[buttonId]= commentOfButton;
-    localStorage.setItem("hourlyRecords-"+dateFormat, JSON.stringify(dayArray));
+    hourlyRecords[buttonId]= commentOfButton;
+    localStorage.setItem("hourlyRecords-"+dateFormat, JSON.stringify(hourlyRecords));
 
     
 })
