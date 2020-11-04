@@ -16,9 +16,13 @@ var d = moment().format("MMM Do YYYY");  ;
 //var dateString = days[d.getDay()] +" "+ d.getDate() + " "+ months[d.getMonth()] + " " + d.getFullYear();
 //var currentHour = d.getHours(); //Used to track which of the days we'll color gray, blue or green.
 var currentHour = moment().format('h');
+var currentMeridiem = moment().format('a');
+if(currentMeridiem=== 'pm'){
+    currentHour=Number(currentHour)+12;
+}
 var dateString = d;
 //console.log(currentHour);
-$("#currentDay").text(dateString);
+$("#currentDay").text(dateString+" "+currentHour+currentMeridiem);
 
 //console.log(dateString);
 //console.log(currentHour);
@@ -92,7 +96,7 @@ function createDefaultDayRecords(){
     var dayArray= new Array;
     //console.log("FORING");
     for(var counterHour= 0; counterHour <= divisionOfDay; counterHour++){
-        dayArray[counterHour] ="This is the "+(counterHour+1)+ ":00 comment"; 
+        dayArray[counterHour] ="Add something.."; 
         //console.log(dayArray);
         $("#row-"+counterHour).find('textarea').eq(0).text(dayArray[counterHour]);
     }
